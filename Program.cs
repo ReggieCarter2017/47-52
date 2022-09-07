@@ -1,21 +1,28 @@
 ﻿
-void TwoDimensionalArray(int a, int b, int pos)
+void TwoDimensionalArray(int a, int b)
 {
-    double[,] array = new double[a, b];
+    int[,] array = new int[a, b];
+    float arif = 0;
     for (int i = 0; i < a; i++)
-        for (int q = 0; q < b; q++) array[i, q] = new Random().Next(-100, 101) + Math.Round(new Random().NextDouble(), 1);
+    {
+        for (int q = 0; q < b; q++) array[i, q] = new Random().Next(1, 101);
+    }
     for (int i = 0; i < a; i++)
     {
         for (int q = 0; q < b; q++) Console.Write($"{array[i, q]} ");
     Console.WriteLine();     
     }
-    Console.WriteLine();
-    if (pos / 10 < a && pos % 10 < b && pos > -1) Console.Write(array[pos / 10, pos % 10]); // Решение 50-ой задачи
-    else
-    Console.Write("Такого индекса не существует в данном двумерном массиве.");
+        for (int i = 0; i < b; i++)
+    {
+        arif = 0;
+        for (int q = 0; q < a; q++)
+        {
+        arif += array[q, i];
+        }
+        Console.Write($"{arif / a} ");
+    }        
+ 
 }
 int m = 5;
-int n = 5;
-Console.WriteLine("Введите индекс элемента: ");
-int.TryParse(Console.ReadLine(), out int a);
-TwoDimensionalArray(m, n, a);
+int n = 4;
+TwoDimensionalArray(m, n);
